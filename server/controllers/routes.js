@@ -1,10 +1,9 @@
  
 const express = require('express');
-const router = express.Router();
-const app = express();
+const router = express.Router({mergeParams: true});
 const userController = require("./userController");
 
-app.use("/user",userController);
+router.use("/user",userController);
 
 router.get('/', function (req, res) {
     res.send({ "welcome": "It's running" });
